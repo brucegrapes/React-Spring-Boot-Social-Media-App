@@ -1,0 +1,23 @@
+.page-template {
+    main {
+        margin-left: 10rem;
+        margin-right: 10rem;
+        min-height: calc(100vh - 5rem);
+        background-color: #fff;
+    }
+}
+.header .heading {
+    padding: 100px 0!important;
+}
+.more-btn.btn.btn-primary.btn-sm {
+    height: 22%;
+    width: 37%;
+    font-size: 25px;
+    margin-left: 27%;
+    background: #212529;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #0069d9!important;
+    border-color: #0062cc;
+}

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="theme-color" content="#000000" />
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+    <title>Spring React Blog</title>
+  </head>
+  <body>
+    <div id="root"></div>    
+    <script>
+      function formValidate(){
+        var name = document.forms["myForm"]["name"].value;
+        var email=document.forms["myForm"]["email"].value;
+        var password=document.forms["myForm"]["password"].value;
+        //alert(name);
+        postData(`http://localhost:8080/api/register`, {
+          "authorities": [
+          "user"
+          ],
+          "createdBy": "NoOne",
+          "createdDate": "2021-02-24T03:31:52.705Z",
+          "email": ""+email+"",
+          "id": 0,
+          "lastModifiedBy": "NoOne",
+          "lastModifiedDate": "2021-02-24T03:31:52.705Z",
+          "password": ""+password+"",
+          "userName": ""+name+""
+        }).then(data => console.log(JSON.stringify(data))).catch(error => console.error(error));
+
+      }
+      function postData(url = ``, data = {}) {
+       return fetch(url, {
+           method: "POST",
+           mode: "cors",
+           cache: "no-cache", 
+           credentials: "same-origin",
+           headers: {
+               "Content-Type": "application/json"
+       },
+       redirect: "follow",
+       referrer: "no-referrer",
+       body: JSON.stringify(data)
+       }).then(response => response.json()); // parses response to JSON
+   }   
+   </script>
+  </body>
+</html>
